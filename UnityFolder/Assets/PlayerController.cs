@@ -6,9 +6,14 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] Rigidbody2D playerRb;
+    [SerializeField] Animator playerAnimator;
     [SerializeField] float speed = 10f;
+    [SerializeField] float sprintSpeed = 2f;
+
     float horizontalInput;
     float verticalInput;
+    bool isRunning;
+    Vector2 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +26,32 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+        playerAnimator.SetFloat("Horizontal", horizontalInput);
+        playerAnimator.SetFloat("Vertical", verticalInput);
+        if (Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f)
+        {
+            playerAnimator.SetFloat("MemoHorizontal", horizontalInput);
+            playerAnimator.SetFloat("MemoVertical", verticalInput);
+        }
+        playerAnimator.SetFloat("Vertical", verticalInput);
+        if (horizontalInput != 0 || verticalInput != 0) isRunning = true;
+        else isRunning = false;
+        playerAnimator.SetBool("IsRunning", isRunning);
+
+        if (Input.GetButton("Sprint"))
+        {
+            velocity = speed * sprintSpeed * new Vector2(horizontalInput, verticalInput).normalized;
+            playerAnimator.SetBool("Sprint", true);
+        }
+        else
+        {
+            velocity = speed * new Vector2(horizontalInput, verticalInput).normalized;
+            playerAnimator.SetBool("Sprint", false); 
+        }
     }
 
     private void FixedUpdate()
     {
-        playerRb.velocity = new Vector2 (horizontalInput, verticalInput).normalized * speed;
+        playerRb.velocity = velocity;
     }
 }

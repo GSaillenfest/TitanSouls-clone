@@ -30,16 +30,16 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 21300000, guid: 9e768dbb983ccae43983fb32864f1311, type: 3}
-    - {fileID: -389725528, guid: 2c4c0fb83b6a01d47b45ca4e30f9223b, type: 3}
-    - {fileID: 21300000, guid: 9e768dbb983ccae43983fb32864f1311, type: 3}
+    - {fileID: 21300000, guid: ef7432b137a0b45439ef49027e091ea8, type: 3}
+    - {fileID: 21300000, guid: 3611aba72212a0d4c891693330f5f90e, type: 3}
     - {fileID: 21300000, guid: 37d1a9e9e541cdf4ba2f70818fb68996, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
-    m_PerlinScale: 0.22
+    m_PerlinScale: 0.151
     m_Output: 1
     m_ColliderType: 1
-    m_RandomTransform: 0
+    m_RandomTransform: 2
     m_Neighbors: 
     m_NeighborPositions:
     - {x: -1, y: 1, z: 0}
