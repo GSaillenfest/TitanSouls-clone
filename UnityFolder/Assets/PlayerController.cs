@@ -9,16 +9,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     [SerializeField] float speed = 10f;
     [SerializeField] float sprintSpeed = 2f;
+    [SerializeField] GameObject torchLight;
+
+    public Vector3 targetPosition;
+    public Quaternion lookRotation;
+    public bool isControllable = true;
+
 
     float horizontalInput;
     float verticalInput;
     bool isRunning;
-    Vector2 velocity;
+    Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,7 +52,21 @@ public class PlayerController : MonoBehaviour
         else
         {
             velocity = speed * new Vector2(horizontalInput, verticalInput).normalized;
-            playerAnimator.SetBool("Sprint", false); 
+            playerAnimator.SetBool("Sprint", false);
+        }
+
+        if (Input.GetButtonDown("Roll"))
+        {
+            playerAnimator.SetBool("Roll", true);
+        }
+
+        if (isControllable)
+        {
+
+            if (velocity.magnitude != 0f)
+            {
+                torchLight.transform.up = velocity.normalized;
+            }
         }
     }
 
