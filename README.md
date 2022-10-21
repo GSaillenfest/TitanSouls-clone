@@ -1,6 +1,6 @@
 # TitanSouls-clone
 Top down game - adventure
 
-L'occasion de travailler les TileMaps et jouer avec les lumières.
+L'occasion de travailler les TileMaps, jouer avec les lumières et les layer masks.
 
-[QuietWalkInTheForest](https://user-images.githubusercontent.com/104986291/197151679-a026543c-efed-4b82-8036-69f8cd5379b0.gif)
+![QuietWalkInTheForest](https://user-images.githubusercontent.com/104986291/197158727-08c06276-126b-4484-a89b-3db656b0c720.gif)
